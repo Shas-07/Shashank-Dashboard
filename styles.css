@@ -326,6 +326,54 @@ body::before {
     z-index: 1;
 }
 
+.profile-image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+    animation: fadeInUp 0.8s ease both;
+}
+
+.profile-image {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 4px solid rgba(0, 217, 255, 0.5);
+    box-shadow: 0 0 30px rgba(0, 217, 255, 0.6), 
+                0 0 60px rgba(0, 217, 255, 0.4),
+                0 0 90px rgba(0, 217, 255, 0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    background: rgba(15, 52, 96, 0.8);
+    backdrop-filter: blur(10px);
+    animation: profileGlow 3s ease-in-out infinite;
+}
+
+@keyframes profileGlow {
+    0%, 100% { 
+        box-shadow: 0 0 30px rgba(0, 217, 255, 0.6), 
+                    0 0 60px rgba(0, 217, 255, 0.4),
+                    0 0 90px rgba(0, 217, 255, 0.2);
+        border-color: rgba(0, 217, 255, 0.5);
+    }
+    50% { 
+        box-shadow: 0 0 40px rgba(0, 217, 255, 0.8), 
+                    0 0 80px rgba(0, 217, 255, 0.6),
+                    0 0 120px rgba(0, 217, 255, 0.4),
+                    0 0 160px rgba(139, 92, 246, 0.3);
+        border-color: rgba(0, 217, 255, 0.8);
+    }
+}
+
+.profile-image:hover {
+    transform: scale(1.05) translateY(-5px);
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 50px rgba(0, 217, 255, 0.9), 
+                0 0 100px rgba(0, 217, 255, 0.7),
+                0 0 150px rgba(0, 217, 255, 0.5),
+                0 0 200px rgba(139, 92, 246, 0.4);
+}
+
 .hero-name {
     font-family: 'Orbitron', sans-serif;
     font-size: 5rem;
@@ -1286,6 +1334,11 @@ section {
         transform: rotate(-45deg) translate(7px, -6px);
     }
 
+    .profile-image {
+        width: 200px;
+        height: 200px;
+    }
+
     .hero-name {
         font-size: 3.5rem;
     }
@@ -1326,6 +1379,11 @@ section {
 @media (max-width: 480px) {
     .hero {
         padding: 6rem 0 5rem;
+    }
+
+    .profile-image {
+        width: 180px;
+        height: 180px;
     }
 
     .hero-name {
